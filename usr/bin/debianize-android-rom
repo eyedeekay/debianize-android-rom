@@ -206,11 +206,28 @@ exit 0" > /etc/rc.local
 	rm -rf "$WD/.mnt/debian"
 	cd "$WD"
 }
-clear
-select_drive $DISK
-check_drive
-format_drive
-modify_initramfs
-armdebootstrap
-droidbootstrap
-finalize
+main(){
+	clear
+	select_drive $DISK
+	check_drive
+	format_drive
+	modify_initramfs
+	armdebootstrap
+	droidbootstrap
+	finalize
+}
+help(){
+	echo "This is a program for creating a Debian in an SD card and
+modifying an Android system to run cooperatively with it. More info as things
+develop, next friday.
+"
+}
+if [ "$1" == "" ]; then
+	help
+elif [ "$1" == "help" ]; then
+	help
+elif [ "$1" == "--help" ]; then
+	help
+elif [ "$1" == "-help" ]; then
+	help
+fi
