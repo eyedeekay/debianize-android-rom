@@ -2,6 +2,7 @@
 DISK=$(find /dev/disk/by-label/ -type l -name "*")
 echo $DISK
 DRIVE="unset"
+DEVICE="unset"
 select_drive(){
 	title='Which SD card do you want to format for your Android root?'
 	prompt="Pick an option:"
@@ -39,5 +40,32 @@ check_drive(){
 	    echo "$DRIVE"
 	fi
 }
+make_aligned_partitions(){
+	echo "make aligned partitions"
+	PARTITIONONE=${DEVICE%?}"1"
+	PARTITIONTWO=${DEVICE%?}"2"
+	echo $PARTITIONONE
+	echo $PARTITIONTWO
+	mkfs -t vfat $PARTITIONONE
+	mkfs -t ext4 $PARTITIONTWO
+}
+format_drive(){
+	DEVICE=$(readlink -f "$DRIVE")
+	echo "ATTENTION!!! This could possibly disable part of your system if
+you have selected the incorrect drive. Please verify that you wish to format
+	$DRIVE		$DEVICE
+before continuing.
+"
+	read -p "	Is this the correct device(Y/N)? " -n 1 -r
+	echo    # (optional) move to a new line
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+	    make_aligned_partitions
+	else
+	    echo "User cancelled, incorrect disk."
+	    exit 0
+	fi
+}
+clear
 select_drive $DISK
 check_drive
+format_drive
