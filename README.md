@@ -51,3 +51,17 @@ TODO LIST:
   10. Create a flashable zip package(This will have to be broken down into many
      more steps. It'll be done last.)
 
+Android Kitchen Integration
+---------------------------
+
+I'm going to integrate this into my own copy of Android Kitchen. To be honest,
+it's probably not that out of reach to just rewrite Android Kitchen eventually.
+It's just shell scripts anyway, but I don't know, make it use whiptail or zenity
+instead of whatever it does now, then write a doc about how to actually write
+plugins for it before I make the initial commit or something. I'm just
+spitballing here. I dunno. Maybe it's the screen real estate of the 10 inch
+laptop but I value vertically concise code and comments more than whitespace,
+and the current Kitchen isn't great at that. It's pretty good at working, and if
+you're okay at reading shell scripts, it can provide excellent examples. But
+taking the experience gained from the Kitchen and turning it into Kitchen Redux
+would be cool.
