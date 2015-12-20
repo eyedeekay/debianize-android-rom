@@ -44,10 +44,11 @@ TODO LIST:
       system. It should also make any necessary modification to sudo to give it
       the same permissions as root on the Android system.
   8. Configure the desktop environment and the VNC server on Debian system.
+    (Unimplemented)
   9. De-Androidize Android system. Remove everything except the services
      required to drive the Android hardware and connect the VNC client to the
      Debian system. Lastly, automatically start the VNC client pointed at the
-     Debian VNC service.
+     Debian VNC service. (Unimplemented)
   10. Create a flashable zip package(This will have to be broken down into many
      more steps. It'll be done last.)
 
@@ -64,4 +65,4 @@ laptop but I value vertically concise code and comments more than whitespace,
 and the current Kitchen isn't great at that. It's pretty good at working, and if
 you're okay at reading shell scripts, it can provide excellent examples. But
 taking the experience gained from the Kitchen and turning it into Kitchen Redux
-would be cool.
+would be helpful.
