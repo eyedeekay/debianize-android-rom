@@ -1,0 +1,43 @@
+#! /bin/bash
+DISK=$(find /dev/disk/by-label/ -type l -name "*")
+echo $DISK
+DRIVE="unset"
+select_drive(){
+	title='Which SD card do you want to format for your Android root?'
+	prompt="Pick an option:"
+	options=$1
+	c=0
+	for o in $options; do
+	    options_list="$o
+$options_list"
+	    c=$((c+1))
+	done
+	echo "$title
+	$prompt
+	"
+	PS3="$prompt "
+	select opt in "${options[@]}" "Quit"; do 
+	    case "$REPLY" in
+	    1 ) export DRIVE="$opt" && break;;
+	    2 ) export DRIVE="$opt" && break;;
+	    3 ) export DRIVE="$opt" && break;;
+	    4 ) export DRIVE="$opt" && break;;
+	    5 ) export DRIVE="$opt" && break;;
+	    6 ) export DRIVE="$opt" && break;;
+	    7 ) export DRIVE="$opt" && break;;
+	    8 ) export DRIVE="$opt" && break;;
+	    9 ) export DRIVE="$opt" && break;;
+            $(( ${#options[@]}+1 )) ) export DRIVE="QUIT" && echo "Goodbye!"; break;;
+	    *) export DRIVE="Invalid option.";continue;;
+	    esac
+	done
+}
+check_drive(){
+	if [ "$DRIVE" == "QUIT" ]; then
+	    exit 0
+	else
+	    echo "$DRIVE"
+	fi
+}
+select_drive $DISK
+check_drive
