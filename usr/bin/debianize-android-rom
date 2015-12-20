@@ -122,11 +122,21 @@ exec /sbin/busybox switch_root /mnt/root /etc/init
 	    echo "Error, original kernel not found. Place boot.img in working directory."
 	    exit 1
 	fi
-	mkbootimg --base $PHYS_OFFSET --kernel zImage --ramdisk initramfs.cpio.gz -o my-boot.img
+	abootimg -u boot.img -c [ "CONFIG_PHYS_OFFSET=$PHYS_OFFSET" ] -k zImage -r initramfs.cpio.gz
 	cd "$WD"
+}
+armdebootstrap(){
+cd "$WD"
+mkdir -p cd "$WD/.mnt/debian"
+PARTITIONTWO=${DEVICE%?}"2"
+mount -t ext4 $PARTITIONTWO "$WD/.mnt/debian"
+debootstrap --verbose --arch armhf --foreign jessie "$WD/.mnt/debian" http://ftp.se.debian.org/debian
+umount "$WD/.mnt/debian"
+cd "$WD"
 }
 clear
 select_drive $DISK
 check_drive
 format_drive
 modify_initramfs
+armdebootstrap
