@@ -35,7 +35,8 @@ TODO LIST:
        current directory so that the scripts can be used. Debian's source
        packages are retrieved and used.
     2. Busybox is also downloaded and built from the latest stable Debian source
-       package.
+       package. It is cross-compiled for armhf and the static binary is copied
+       to sbin/busybox on the SD card.
   5. Setup init scripts(Untested)
   6. Install the modified boot image to the phone(Untested)
     * This step will be optional in the final version.
