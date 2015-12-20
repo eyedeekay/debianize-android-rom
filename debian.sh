@@ -6,7 +6,7 @@ SOURCEDOC=README.md
 DEBFOLDER=debianize-android-rom
 DEBVERSION=0.1
 
-cd hidblock 
+cd debianize-android-rom 
 
 git pull origin master
 
