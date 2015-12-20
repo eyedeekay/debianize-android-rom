@@ -31,16 +31,17 @@ TODO LIST:
       that it will work with the system on a running phone.
   3. Generate Debian Root FS(Works, because it's entirely standard)
   4. Generate new Android Root FS(Works but is probably fragile)
-    1. During this step the linux kernel source package is retrieved in the
-       current directory so that the scripts can be used.
+    1. During this step the Linux kernel source package is retrieved in the
+       current directory so that the scripts can be used. Debian's source
+       packages are retrieved and used.
     2. Busybox is also downloaded and built from the latest stable Debian source
        package.
   5. Setup init scripts(Untested)
   6. Install the modified boot image to the phone(Untested)
     * This step will be optional in the final version.
   7. Configure users and groups(Unimplemented)
-    * This creates a normal user in the debian system, configures sudo, then
-      adds the debian user to the appropriate Android groups to control the
+    * This creates a normal user in the Debian system, configures sudo, then
+      adds the Debian user to the appropriate Android groups to control the
       system. It should also make any necessary modification to sudo to give it
       the same permissions as root on the Android system.
   8. Configure the desktop environment and the VNC server on Debian system.
