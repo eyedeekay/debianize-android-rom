@@ -18,7 +18,8 @@ if you want to be in charge of your hardware(which you should) you're pretty
 much on your own. I mean, I'll do what I can, and there's a huge community
 around Android ROM modification, and ultimately you're better off with them than
 you are with your phone company. Especially if you're in the United States.
-US Phone companies are terrible.
+US Phone companies are terrible. I wouldn't use it until I have a better way of
+managing kernels, especially prebuilt kernels.
 
 TODO LIST:
 ----------
@@ -56,6 +57,9 @@ TODO LIST:
 
 Android Kitchen Integration
 ---------------------------
+
+Update: I just decided I was going to rewrite Android Kitchen using dialog
+variants and without bashisms. It's pretty started, lol. (Android Scullery)[https://github.com/cmotc/android-scullery]
 
 I'm going to integrate this into my own copy of Android Kitchen. To be honest,
 it's probably not that out of reach to just rewrite Android Kitchen eventually.
